@@ -1,5 +1,6 @@
 package trees;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class BinaryTree {
@@ -85,9 +86,89 @@ public class BinaryTree {
 			}
 		}
 		
+		public int height() {
+			return this.height(this.root);
+		}
+		
+		private int height(Node node) {
+			if (node == null) {    //base case
+				return -1;
+			}
+			int lheight = height(node.left);
+			int rheight = height(node.right);
+			
+			return Math.max(lheight, rheight) + 1;
+		}
+		
+		public void preOrder() {
+			this.preOrder(this.root);
+			System.out.println("END");
+		}
+
+		private void preOrder(Node node) {
+			if (node == null) {
+				return;
+			}
+			System.out.print(node.data + ",");
+			preOrder(node.left);
+			preOrder(node.right);
+		}
+		
+		public void postOrder() {
+			this.postOrder(this.root);
+			System.out.println("END");
+		}
+
+		private void postOrder(Node node) {
+			if (node == null) {
+				return;
+			}
+			postOrder(node.left);
+			postOrder(node.right);
+			System.out.print(node.data + ",");
+		}
+		
+		public void inOrder() {
+			this.inOrder(this.root);
+			System.out.println("END");
+		}
+
+		private void inOrder(Node node) {
+			if (node == null) {
+				return;
+			}
+			inOrder(node.left);
+			System.out.print(node.data + ",");
+			inOrder(node.right);
+		}
+		
+		public void levelOrder() {
+			LinkedList<Node> queue = new LinkedList<>();
+			queue.add(this.root);
+			
+			while (!queue.isEmpty()) {
+				Node rv = queue.removeFirst();
+				System.out.print(rv.data + ",");
+				
+				if (rv.left != null) {
+					queue.addLast(rv.left);
+				}
+				if (rv.right != null) {
+					queue.addLast(rv.right);
+				}
+			}
+			
+			System.out.println("END");
+		}
+
 		public static void main(String[] args) {
 			// 50 true 25 true 38 false false true 48 true 18 false false false true 45 true 85 false false true 60 false false
 			BinaryTree tree = new BinaryTree();
-			tree.display();
+//			tree.display();
+			System.out.println("Height of tree is "+tree.height());
+			tree.preOrder();
+			tree.postOrder();
+			tree.inOrder();
+			tree.levelOrder();
 		}
 }
