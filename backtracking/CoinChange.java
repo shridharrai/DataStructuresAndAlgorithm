@@ -5,8 +5,8 @@ public class CoinChange {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-//		coinChange(new int[] {2, 3, 5, 6}, 10, "", 0);
-		coinChangePermutation(new int[] {2, 3, 5, 6}, 10, "");
+		coinChange(new int[] {2, 3, 5, 6}, 5, "", 0);
+//		coinChangePermutation(new int[] {2, 3, 5, 6}, 10, "");
 	}
 	
 	public static void coinChange(int[] denom, int amount, String ans, int lastDenomIdx) {
