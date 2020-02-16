@@ -23,6 +23,14 @@ public class LinkedList {
 		System.out.println("-----------------------");
 	}
 	
+	public int size() {
+		return this.size;
+	}
+	
+	public boolean isEmpty() {
+		return this.size() == 0;
+	}
+	
 	//O(1)
 	public void addLast(int item) {
 		//Create a new Node
