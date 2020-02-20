@@ -16,9 +16,18 @@ public class TrieClient {
 		
 		trie.display();
 		
-		System.out.println(trie.search("art"));
-		System.out.println(trie.search("arts"));
-		System.out.println(trie.search("arpit"));
+//		System.out.println(trie.search("art"));
+//		System.out.println(trie.search("arts"));
+//		System.out.println(trie.search("arpit"));
+		
+		System.out.println("************************");
+		trie.remove("arts");
+		trie.display();
+		System.out.println("***********************");
+		trie.remove("art");
+		trie.display();
+		
+		System.out.println(trie.numWords());
 	}
 
 }

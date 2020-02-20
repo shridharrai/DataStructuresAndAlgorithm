@@ -93,4 +93,33 @@ public class Trie {
 		
 		return this.search(child, ros);
 	}
+	
+	public void remove(String word) {
+		this.remove(this.root, word);
+	}
+
+	private void remove(Node parent, String word) {
+		// TODO Auto-generated method stub
+		if (word.length() == 0) {
+			if (parent.isTerminal) {
+				parent.isTerminal = false;
+				this.numWords--;
+			} else {
+				// word is a part of some other word
+			}
+			return;
+		}
+		char cc = word.charAt(0);
+		String ros = word.substring(1);
+		Node child = parent.children.get(cc);
+		if (child == null) {
+			return;
+		}
+		
+		this.remove(child, ros);
+		
+		if (!child.isTerminal && child.children.size() == 0) {
+			parent.children.remove(cc);
+		}
+	}
 }
