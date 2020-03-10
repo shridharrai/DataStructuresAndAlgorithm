@@ -13,6 +13,7 @@ public class Reverse {
 			n = n/10;
 		}
 		System.out.println(ans);
+		System.out.println(Math.round((Math.pow(2, 31.0)))-1);
 		scn.close();
 	}
 
